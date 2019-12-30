@@ -1,6 +1,8 @@
 # Centos 更新 安装基础软件工具等操作
 - block:
-  - raw: dnf install -y python-dnf
+  - name: Install python3-dnf
+    pip:
+      name: dnf
 
   - name: System Upgrade
     dnf: name=* state=latest
