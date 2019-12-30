@@ -1,11 +1,7 @@
 # Centos 更新 安装基础软件工具等操作
 - block:
   - name: System Upgrade
-    yum: name=* state=latest
-
-  - name: Install EPEL
-    yum:
-      name: epel-release
+    dnf: name=* state=latest
 
   - name: Disable SELinux
     selinux:
@@ -16,9 +12,8 @@
     when: ansible_selinux.status != 'disabled'
 
   - name: Install Common Software
-    yum: 
-      name: [mosh,yum-utils,wget,openssl,unzip,bzip2,expect,at,vim, screen,pwgen,git, htop, yum-cron,ImageMagick, goaccess,inotify-tools]
-      state: installed
+    dnf: 
+      name: [mosh,yum-utils,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,yum-cron,ImageMagick,goaccess,inotify-tools]
     
   - name: Configuration yum-cron
     copy: src=yum-cron.conf dest=/etc/yum/
