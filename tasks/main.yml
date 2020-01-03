@@ -13,7 +13,7 @@
 
   - name: Install Common Software
     dnf: 
-      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,goaccess,inotify-tools,dnf-automatic]
+      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,dnf-automatic]
     
   - name: Configuration dnf-automatic
     copy: src=automatic.conf dest=/etc/dnf/automatic.conf
