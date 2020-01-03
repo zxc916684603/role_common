@@ -53,7 +53,7 @@
 
 - name: pip requirements
   pip:
-    name: [pexpect]
+    name: pexpect
 
 - name: Set swapiness
   sysctl:
