@@ -13,7 +13,7 @@
 
   - name: Install Common Software
     dnf: 
-      name: [mosh,yum-utils,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,yum-cron,ImageMagick,goaccess,inotify-tools]
+      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,yum-cron,ImageMagick,goaccess,inotify-tools]
     
   - name: Configuration yum-cron
     copy: src=yum-cron.conf dest=/etc/yum/
