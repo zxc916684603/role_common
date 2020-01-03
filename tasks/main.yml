@@ -13,13 +13,13 @@
 
   - name: Install Common Software
     dnf: 
-      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,yum-cron,ImageMagick,goaccess,inotify-tools]
+      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,yum-cron,ImageMagick,goaccess,inotify-tools,dnf-automatic]
     
-  - name: Configuration yum-cron
-    copy: src=yum-cron.conf dest=/etc/yum/
+  - name: Configuration dnf-automatic
+    copy: src=automatic.conf dest=/etc/dnf/automatic.conf
 
-  - name: Start yum-cron
-    service: name=yum-cron state=started enabled=yes
+  - name: Start dnf-automatic.timer
+    service: name=dnf-automatic.timer enabled=yes
   
   when: ansible_distribution == 'CentOS'
 
