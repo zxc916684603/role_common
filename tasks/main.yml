@@ -1,7 +1,7 @@
 # Centos 更新 安装基础软件工具等操作
 - block:
   - name: System Upgrade
-    dnf: name=* state=latest
+    yum: name=* state=latest
 
   - name: Disable SELinux
     selinux:
@@ -12,7 +12,7 @@
     when: ansible_selinux.status != 'disabled'
 
   - name: Install Common Software
-    dnf: 
+    yum: 
       name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,dnf-automatic]
     
   - name: Configuration dnf-automatic
