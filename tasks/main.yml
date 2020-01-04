@@ -13,10 +13,8 @@
 
   - name: Install Common Software
     yum: 
-      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,dnf-automatic]
-    
-  - name: Configuration dnf-automatic
-    copy: src=automatic.conf dest=/etc/dnf/automatic.conf
+      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools]
+
 
   - name: Start dnf-automatic.timer
     service: name=dnf-automatic.timer enabled=yes
