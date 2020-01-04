@@ -15,6 +15,12 @@
     yum: 
       name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools]
     
+  - name: Install PiP
+    yum:
+      name: python-pip
+    when: ansible_python.version.major = 2
+
+
   when: ansible_distribution == 'CentOS'
 
 # Ubuntu 更新 安装基础软件工具等操作
