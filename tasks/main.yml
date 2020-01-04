@@ -45,12 +45,6 @@
   
   when: ansible_distribution == 'Ubuntu'
 
-
-- name: Pip Update
-  pip:
-    name: pip
-    extra_args: -U
-
 - name: pip requirements
   pip:
     name: pexpect
