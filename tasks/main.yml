@@ -18,7 +18,7 @@
   - name: Install PiP
     yum:
       name: python-pip
-    when: ansible_python.version.major = 2
+    when: ansible_python.version.major == 2
 
 
   when: ansible_distribution == 'CentOS'
