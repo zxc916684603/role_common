@@ -14,11 +14,7 @@
   - name: Install Common Software
     yum: 
       name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools]
-
-
-  - name: Start dnf-automatic.timer
-    service: name=dnf-automatic.timer enabled=yes
-  
+    
   when: ansible_distribution == 'CentOS'
 
 # Ubuntu 更新 安装基础软件工具等操作
@@ -33,13 +29,10 @@
 
   - name: Install Common Software
     apt: 
-      name: [mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess,unattended-upgrades]
+      name: [mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess]
       state: latest
       force_apt_get: True
       allow_unauthenticated: yes
-
-  - name: Configuration unattended-upgrades
-    copy: src=20auto-upgrades dest=/etc/apt/apt.conf.d/
   
   when: ansible_distribution == 'Ubuntu'
 
