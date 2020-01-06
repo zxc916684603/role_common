@@ -3,6 +3,10 @@
   - name: System Upgrade
     yum: name=* state=latest
 
+  - name: Install Extra Packages for Enterprise Linux
+    yum: 
+      name: epel-release
+
   - name: Disable SELinux
     selinux:
       state: disabled
