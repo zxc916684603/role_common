@@ -23,7 +23,7 @@
       state: disabled
 
   - reboot:
-        
+      reboot_timeout: 3600
   - name: Install PiP
     yum:
       name: python-pip
