@@ -13,6 +13,11 @@
     when: ansible_distribution == 'Amazon'
 
 
+  - name: Install Common Software
+    yum: 
+      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,libselinux-python]
+    
+
   - name: Disable SELinux
     selinux:
       state: disabled
@@ -21,10 +26,7 @@
     shell: setenforce 0 
     when: ansible_selinux.status != 'disabled'
 
-  - name: Install Common Software
-    yum: 
-      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools]
-    
+
   - name: Install PiP
     yum:
       name: python-pip
