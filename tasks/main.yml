@@ -22,11 +22,8 @@
     selinux:
       state: disabled
 
-  - name:  temporarily disable Selinux
-    shell: setenforce 0 
-    when: ansible_selinux.status != 'disabled'
-
-
+  - reboot:
+        
   - name: Install PiP
     yum:
       name: python-pip
