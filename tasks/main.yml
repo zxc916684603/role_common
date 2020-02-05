@@ -34,6 +34,10 @@
 
 # Ubuntu 更新 安装基础软件工具等操作
 - block:
+  - name: Wait for sudo
+    become: yes
+    shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
+    
   - name: Upgrade all packages to the latest version
     apt:
       name: "*"
