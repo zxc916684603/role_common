@@ -23,6 +23,7 @@
   - name: Disable SELinux
     selinux:
       state: disabled
+    when: ansible_selinux.status != 'disabled'
     
   - name: Install PiP
     yum:
