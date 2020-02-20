@@ -56,23 +56,11 @@
   when: ansible_os_family == 'Debian'
 
 - name: pip upgrade
-  pip:
-    name: pip
-    extra_args: -U
-
-- name: pip upgrade
-  pip:
-    name: pip
-    extra_args: -U
-    executable: pip3
-  when: ansible_os_family == 'Debian'
+  shell: python{{ansible_python.version.major}} -m pip install -U pip
   
 - name: Install pip requirements module
   pip:
     name: pexpect
-  
-
-
 
 - name: Set swapiness
   sysctl:
