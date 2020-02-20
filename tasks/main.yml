@@ -57,21 +57,22 @@
   
   when: ansible_os_family == 'Debian'
 
-- name: pip requirements
+- name: pip upgrade
   pip:
     name: pip
     extra_args: -U
 
-- name: pip requirements
+- name: pip upgrade
   pip:
     name: pip
     extra_args: -U
     executable: pip3
   when: ansible_os_family == 'Debian'
   
-- name: pip upgrade
+- name: Install pip requirements module
   pip:
     name: pexpect
+  
 
 
 
