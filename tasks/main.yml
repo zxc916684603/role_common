@@ -17,9 +17,8 @@
     yum: 
       name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,libselinux-python]
     
-
   - shell: setenforce 0
-  
+
   - name: Disable SELinux
     selinux:
       state: disabled
