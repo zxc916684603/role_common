@@ -31,7 +31,7 @@
     shell: sudo setenforce 0
     when: ansible_selinux.status != 'disabled'
 
-  - name: Disable SELinux
+  - name: Disable SELinux ermanently
     selinux:
       state: disabled
     when: ansible_selinux.status != 'disabled'
