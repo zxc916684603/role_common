@@ -13,12 +13,12 @@
   - name: System Upgrade
     yum: name=* state=latest
 
-  - name: Install Extra Packages for Enterprise Linux
+  - name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}}
     yum: 
       name: epel-release
     when: ansible_distribution != 'Amazon'
 
-  - name: Install Extra Packages for Enterprise Linux
+  - name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}}
     shell: amazon-linux-extras install epel -y
     when: ansible_distribution == 'Amazon'
 
