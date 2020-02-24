@@ -71,7 +71,8 @@
   
 - name: Install pip requirements module
   pip:
-    name: pexpect
+    name: [pexpect,requests]
+    extra_args: "-U" 
 
 - name: Set swapiness
   sysctl:
