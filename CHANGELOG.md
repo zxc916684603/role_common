@@ -12,4 +12,5 @@
 
 ### Features
 
+* 2020-02-24  将main.yml按照os_family拆分
 * 2020-02-21  增加中国地区DNS地址
