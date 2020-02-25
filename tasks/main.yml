@@ -21,7 +21,7 @@
   
 - name: Install pip requirements module
   pip:
-    name: [pexpect,requests]
+    name: [pexpect]
     extra_args: "-U" 
 
 # 系统设置
