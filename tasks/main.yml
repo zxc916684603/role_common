@@ -10,7 +10,7 @@
   
 - name: Install pip requirements module
   pip:
-    name: [pexpect]
+    name: [pexpect,PyMySQL]
     extra_args: "-U" 
 
 # 系统设置
