@@ -16,3 +16,4 @@
     state: latest
     force_apt_get: True
     allow_unauthenticated: yes
+  when: common_install_components

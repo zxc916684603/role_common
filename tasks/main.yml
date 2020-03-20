@@ -5,13 +5,15 @@
 
 
 # Python模块处理
-- name: pip upgrade
-  shell: python{{ansible_python.version.major}} -m pip install -U pip
-  
-- name: Install pip requirements module
-  pip:
-    name: [pexpect,PyMySQL]
-    extra_args: "-U" 
+block:
+  - name: pip upgrade
+    shell: python{{ansible_python.version.major}} -m pip install -U pip
+    
+  - name: Install pip requirements module
+    pip:
+      name: [pexpect,PyMySQL]
+      extra_args: "-U" 
+  when: common_install_PyPackages
 
 # 系统设置
 - name: Set swapiness
