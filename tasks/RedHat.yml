@@ -10,7 +10,7 @@
   shell: amazon-linux-extras install epel -y
   when: ansible_distribution == 'Amazon'
 
-block:
+- block:
   - name: Install Common Software
     yum: 
       name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,libselinux-python]
