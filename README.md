@@ -22,8 +22,12 @@ Ansible Role: common
 
 ## Variables
 
-暂无
+本 Role 主要变量以及使用方法如下：
 
+| **Items**      | **Details** | **Format**  | **是否初始化** |
+| ------------------| ------------------|-----|-----|
+| common_install_python_modules | 布尔类型，默认 True| 字符串 |否|
+| common_install_components |布尔类型，默认 True| 字符串 |否|
 
 ## Example
 
