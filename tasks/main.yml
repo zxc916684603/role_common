@@ -13,7 +13,7 @@
     pip:
       name: [pexpect,PyMySQL]
       extra_args: "-U" 
-  when: common_install_PyPackages
+  when: common_install_python_modules
 
 # 系统设置
 - name: Set swapiness
