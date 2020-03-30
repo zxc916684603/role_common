@@ -4,7 +4,7 @@
 - name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}}
   yum: 
     name: epel-release
-  when: ansible_distribution != 'Amazon'
+  when: ansible_distribution != 'Amazon' and ansible_distribution != 'OracleLinux'
 
 - name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}}
   shell: amazon-linux-extras install epel -y
@@ -14,6 +14,7 @@
   - name: Install Common Software
     yum: 
       name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,libselinux-python]
+    when: ansible_distribution != 'OracleLinux'
 
   # Is this need here?
   - name: Install PiP for python2
