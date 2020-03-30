@@ -16,12 +16,6 @@
       name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,libselinux-python]
     when: ansible_distribution != 'OracleLinux'
 
-  # Is this need here?
-  - name: Install PiP for python2
-    yum:
-      name: python-pip
-    when: ansible_python.version.major == 2
-
   when: common_install_components
   
 - name: Disable SELinux temporarily
