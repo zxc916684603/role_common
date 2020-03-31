@@ -29,7 +29,7 @@
   when: ansible_distribution != 'OracleLinux'
 
 # 准备基本目录
--block:
+- block:
   - name: Create Dir
     file:
       path: '/data/{{item}}'
