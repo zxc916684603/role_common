@@ -16,23 +16,27 @@
   when: common_install_python_modules
 
 # 系统设置
-- name: Set swapiness
-  sysctl:
-    name: vm.swappiness
-    value: "10"
+- block:
+  - name: Set swapiness
+    sysctl:
+      name: vm.swappiness
+      value: "10"
 
-- name: Fix No space left on device
-  sysctl:
-    name: fs.inotify.max_user_watches
-    value: "8192000"
+  - name: Fix No space left on device
+    sysctl:
+      name: fs.inotify.max_user_watches
+      value: "8192000"
+  when: ansible_distribution != 'OracleLinux'
 
 # 准备基本目录
-- name: Create Dir
-  file:
-    path: '/data/{{item}}'
-    state: directory
-  with_items:
-    - logs
-    - config
-    - cert
-    - wwwroot
+-block:
+  - name: Create Dir
+    file:
+      path: '/data/{{item}}'
+      state: directory
+    with_items:
+      - logs
+      - config
+      - cert
+      - wwwroot
+  when: ansible_distribution != 'OracleLinux'
