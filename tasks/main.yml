@@ -41,7 +41,7 @@
       - wwwroot
   when: ansible_distribution != 'OracleLinux'
   
-# set a regular hostname
+# set a regular hostname, remove "."
 - block:
   - name: hostname rename
     shell: get_hostname=$(hostname);echo ${get_hostname%.*}
