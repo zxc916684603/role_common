@@ -47,4 +47,4 @@
     shell: get_hostname=$(hostname);echo ${get_hostname%.*}
     register: common_get_hostname
   - hostname:
-      name: {{common_get_hostname.stdout}}
+      name: "{{common_get_hostname.stdout}}"
