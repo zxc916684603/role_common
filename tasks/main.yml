@@ -44,7 +44,7 @@
 # set a regular hostname, remove "."
 - block:
   - name: hostname rename
-    shell: get_hostname=$(hostname);echo ${get_hostname%.*}
+    shell: get_hostname=$(hostname);echo ${get_hostname%%.*}
     register: common_get_hostname
   - hostname:
       name: "{{common_get_hostname.stdout}}"
