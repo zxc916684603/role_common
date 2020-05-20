@@ -27,3 +27,8 @@
     state: disabled
   when: ansible_selinux.status != 'disabled'
   
+- name: Setting rc.d 0750
+  file:
+    path: /etc/rc.d/rc.local
+    mode: 0750
+  when: common_set_rclocal
