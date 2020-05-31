@@ -14,12 +14,13 @@
 - block:
   - name: Install Common Software
     yum: 
-      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,mlocate,pwgen,git,htop,ImageMagick,inotify-tools,libselinux-python]
+      name: [mosh,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,ImageMagick,inotify-tools,libselinux-python]
     when: ansible_distribution != 'OracleLinux'
   
-  - name: update db for locate
-    shell: updatedb
-
+  - name: intall mlocate
+    shell: |
+      yum install mlocate -y
+      updatedb
   when: common_install_components
   
 - name: Disable SELinux temporarily
