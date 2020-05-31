@@ -11,12 +11,19 @@
     autoremove: yes
   when: common_system_upgrade and (init == '1' or init == 1)
 
-- name: Install Common Software
-  apt: 
-    name: [mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess]
-    state: latest
-    force_apt_get: True
-    allow_unauthenticated: yes
+- block:
+  - name: Install Common Software
+    apt: 
+      name: [mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess]
+      state: latest
+      force_apt_get: True
+      allow_unauthenticated: yes
+      
+  - name: Install locate
+    shell: |
+      apt-get install mlocate
+      updatedb
+      
   when: common_install_components
 
 - block:
