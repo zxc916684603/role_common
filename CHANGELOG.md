@@ -12,6 +12,7 @@
 
 ### Features
 
+* 2020-05-31  add locate for search
 * 2020-05-20  init=0时，不更新操作系统
 * 2020-03-20  增加两个安装变量common_install_python_modules,common_install_components用于控制组件的安装
 * 2020-02-24  将main.yml按照os_family拆分
