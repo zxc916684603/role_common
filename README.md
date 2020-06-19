@@ -28,6 +28,8 @@ Ansible Role: common
 | ------------------| ------------------|-----|-----|
 | common_install_python_modules | 布尔类型，默认 True| 字符串 |否|
 | common_install_components |布尔类型，默认 True| 字符串 |否|
+| common_os_support |["CentOS", "Ubuntu", "AmazonLinux", "Oracle"]| 字典 |否|
+
 
 ## Example
 
