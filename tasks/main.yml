@@ -1,5 +1,9 @@
 - debug:
     msg: Will install components on {{ ansible_distribution }} 
+    
+- name: Check OS support, if not support, exit ansible
+  shell: 
+  when: ansible_distribution not in common_os_support
 
 - include: "{{ansible_os_family}}.yml"
 
