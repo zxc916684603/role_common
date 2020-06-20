@@ -8,6 +8,7 @@
 
 ### Bug Fixes
 
+* 2020-06-20  add Check OS support in main.yml
 * 2020-02-25  去掉pip install requests, 此模块不是python核心模块
 
 ### Features
