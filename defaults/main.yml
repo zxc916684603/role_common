@@ -6,7 +6,7 @@ common_install_python_modules: True
 common_install_components: True
 common_set_rclocal: False
 
-common_os_support: ["CentOS", "Ubuntu", "AmazonLinux", "Oracle"]
+common_os_support: ["CentOS", "Ubuntu", "AmazonLinux", "Oracle", "OracleLinux"]
 
 # when init=1, need upgrade system
 common_system_upgrade: True
