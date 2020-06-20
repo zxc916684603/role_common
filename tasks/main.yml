@@ -1,6 +1,9 @@
 - debug:
-    msg: Will install components on {{ ansible_distribution }} 
+    msg: Will install components on {{ ansible_distribution }}
     
+- name: echo ansible_distribution name
+  shell: echo {{ansible_distribution}} << /data/info
+  
 - name: Check OS support, if not support, exit ansible
   fail: msg="OS not supported,exit!"
   when: ansible_distribution not in common_os_support
