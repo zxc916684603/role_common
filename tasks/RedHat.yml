@@ -21,7 +21,7 @@
     shell: |
       yum install mlocate -y
       updatedb
-  when: common_install_components
+  when: common_install_components and ansible_distribution != 'OracleLinux'
   
 - name: Disable SELinux temporarily
   shell: sudo setenforce 0
