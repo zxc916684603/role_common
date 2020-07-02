@@ -14,7 +14,7 @@
 - block:
   - name: Install Common Software
     apt: 
-      name: [mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess]
+      name: [acl,mosh,curl,gnupg2,ca-certificates,lsb-release,wget,openssl,unzip,bzip2,expect,at,vim,screen,pwgen,git,htop,imagemagick,goaccess]
       state: latest
       force_apt_get: True
       allow_unauthenticated: yes
