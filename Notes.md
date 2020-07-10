@@ -27,4 +27,14 @@
 "ansible_distribution_major_version": "7",
 "ansible_distribution_release": "core",
 "ansible_distribution_version": "7.6"
+
+# OracleLinux
+"ansible_distribution": "OracleLinux",
+"ansible_distribution_file_parsed": true,
+"ansible_distribution_file_path": "/etc/oracle-release",
+"ansible_distribution_file_search_string": "Oracle Linux",
+"ansible_distribution_file_variety": "OracleLinux",
+"ansible_distribution_major_version": "7",
+"ansible_distribution_release": "NA",
+"ansible_distribution_version": "7.7",
 ```
