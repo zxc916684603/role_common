@@ -1,5 +1,5 @@
 
-## Ansible var for OS distribution
+## Ansible facts for OS distribution
 ```
 # AmazonLinux2
 "ansible_distribution": "Amazon",
