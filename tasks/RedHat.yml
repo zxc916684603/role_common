@@ -23,7 +23,7 @@
   loop:
     - /etc/yum.repos.d/amzn2-extras.repo
     - /etc/yum.repos.d/amzn2-core.repo
-	when: ansible_distribution == 'Amazon'
+  when: ansible_distribution == 'Amazon'
 
 - block:
   - name: Install Common Software
