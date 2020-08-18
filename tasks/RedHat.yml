@@ -14,6 +14,16 @@
     amazon-linux-extras install epel -y
     wget -O /etc/yum.repos.d/CentOS7-Base.repo https://raw.githubusercontent.com/websoft9dev/role_common/master/files/CentOS7-Base.repo
   when: ansible_distribution == 'Amazon'
+  
+- name: Change postgresql databases directory
+  lineinfile:
+      dest: "{{item}}"
+      regexp: "^priority"
+      state: absent
+  loop:
+    - /etc/yum.repos.d/amzn2-extras.repo
+    - /etc/yum.repos.d/amzn2-core.repo
+	when: ansible_distribution == 'Amazon'
 
 - block:
   - name: Install Common Software
