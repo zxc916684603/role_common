@@ -17,7 +17,7 @@
     pip:
       name: [pexpect,PyMySQL]
       extra_args: "-U" 
-  when: common_install_python_modules and ansible_distribution != 'OracleLinux'
+  when: common_install_python_modules
 
 # 系统设置
 - block:
