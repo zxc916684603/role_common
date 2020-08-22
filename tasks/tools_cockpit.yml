@@ -1,8 +1,8 @@
-# Prepare
+#1 Prepare
 - set_fact:
     common_cockpit_port: "9099"
 
-# install cockpit
+#2 Install cockpit
 - name: Install cockpit
   apt: 
     name: [cockpit*]
@@ -22,7 +22,7 @@
       line: "ListenStream={{common_cockpit_port}}"
       backrefs: yes 
 
-# configure
+#3 Configure
 - name: Configuration Cockpit Server
   copy:
     src: cockpit.conf
@@ -36,7 +36,8 @@
   shell: |
     systemctl restart cockpit
     systemctl enable --now cockpit.socket 
-
+    
+#4 Check
 - name: Check cockpit Service
   shell: systemctl status cockpit | grep Active*
   register: check_cockpit_service
