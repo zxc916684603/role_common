@@ -8,7 +8,7 @@ common_set_rclocal: False
 
 common_os_support: ["CentOS", "Ubuntu", "Amazon", "OracleLinux"]
 # Useful tools, e.g: [cockpit]
-common_tools:
+common_install_tools:
 
 # when init=1, need upgrade system
 common_system_upgrade: True
