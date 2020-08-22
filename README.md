@@ -38,6 +38,7 @@ Ansible Role: common
 common_os_support: ["CentOS", "Ubuntu", "Amazon", "OracLinux"]
 common_install_tools
   - cockpit
+```
 
 ## FAQ
 
