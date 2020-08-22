@@ -14,28 +14,38 @@
     name: [cockpit*]
     update_cache: yes    
   when: ansible_os_family == "RedHat"
-  
+
+
+#3 Configure
 - name: Change cockpit port 
   lineinfile:
       dest: /usr/lib/systemd/system/cockpit.socket
       regexp: "ListenStream=9090"
       line: "ListenStream={{common_cockpit_port}}"
       backrefs: yes 
-
-#3 Configure
-- name: Configuration Cockpit Server
-  copy:
-    src: cockpit.conf
-    dest: /etc/cockpit/
+      
+- name: Create /etc/cockpit/cockpit.conf
+  file:
+    path: /etc/cockpit/cockpit.conf
     owner: cockpit-ws
     group: cockpit-ws
-    force: yes
-    mode: 0640
+    mode: '0640'
+    state: touch
+    
+- name: Insert configuration items in cockpit.conf
+  blockinfile:
+    path: /etc/cockpit/cockpit.conf
+    block: |
+      [Log]
+      Fatal = criticals
+      # allow http connection, Otherwise, it redirects all HTTP connections to HTTPS
+      [WebService]
+      AllowUnencrypted = true
 
 - name: Start & Enable cockpit
   shell: |
     systemctl restart cockpit
-    systemctl enable --now cockpit.socket 
+    systemctl enable --now cockpit.socket
     
 #4 Check
 - name: Check cockpit Service
