@@ -1,3 +1,7 @@
+# Prepare
+- set_fact:
+    common_cockpit_port: "9099"
+
 # install cockpit
 - name: Install cockpit
   apt: 
@@ -15,7 +19,7 @@
   lineinfile:
       dest: /usr/lib/systemd/system/cockpit.socket
       regexp: "ListenStream=9090"
-      line: "ListenStream={{os_cockpit_port}}"
+      line: "ListenStream={{common_cockpit_port}}"
       backrefs: yes 
 
 # configure
