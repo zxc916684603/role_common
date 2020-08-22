@@ -7,7 +7,7 @@
     name: [epel-release,centos-release-scl]
     update_cache: yes
     state: latest
-  when: ansible_distribution != 'Amazon'
+  when: ansible_distribution != 'Amazon' and ansible_distribution != 'OracleLinux'
   
 - name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}}
   shell: |
