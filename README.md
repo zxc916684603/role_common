@@ -28,22 +28,16 @@ Ansible Role: common
 | ------------------| ------------------|-----|-----|
 | common_install_python_modules | 布尔类型，默认 True| 字符串 |否|
 | common_install_components |布尔类型，默认 True| 字符串 |否|
-| common_os_support |["CentOS", "Ubuntu", "AmazonLinux", "Oracle"]| 字典 |否|
+| common_os_support |["CentOS", "Ubuntu", "Amazon", "OracleLinux"]| 队列 |否|
+| common_install_tools |- cockpit| 队列 |否|
 
 
 ## Example
 
 ```
-- name: LAMP
-  hosts: all
-  become: yes
-  become_method: sudo 
-  vars_files:
-    - vars/main.yml 
-
-  roles:
-    - { role: role_common }
-```
+common_os_support: ["CentOS", "Ubuntu", "Amazon", "OracLinux"]
+common_install_tools
+  - cockpit
 
 ## FAQ
 
