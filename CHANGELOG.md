@@ -14,6 +14,7 @@
 
 ### Features
 
+* 2020-08-22  add install apps_cockpit.yml
 * 2020-07-25  add intall centos-release-scl for CentOS
 * 2020-07-02  add `apt install acl`
 * 2020-05-31  add locate for search
