@@ -11,5 +11,5 @@ common_os_support: ["CentOS", "Ubuntu", "Amazon", "OracleLinux"]
 # when init=1, need upgrade system
 common_system_upgrade: True
 
-# Useful tools, e.g: cockpit
+# Useful tools, e.g: [cockpit]
 common_tools:
