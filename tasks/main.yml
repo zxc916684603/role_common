@@ -19,8 +19,14 @@
       name: [pexpect,PyMySQL]
       extra_args: "-U" 
   when: common_install_python_modules
+  
+#3 Tool install
+- name: Install tools
+  include_tasks: tools_{{item}}.yml
+  with_items: "{{common_install_tools}}"
+  when: common_install_tools is defined and common_install_tools is not none and common_install_tools != ""
 
-#3 Configure
+#4 Configure
 - name: Create common folder
   file:
     path: '/data/{{item}}'
