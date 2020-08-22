@@ -1,3 +1,4 @@
+#1 Common install by OS
 - debug:
     msg: Will install components on {{ ansible_distribution }}
   
@@ -8,7 +9,7 @@
 - include: "{{ansible_os_family}}.yml"
 
 
-# Python模块处理
+#2 Pip install
 - block:
   - name: pip upgrade
     shell: python{{ansible_python.version.major}} -m pip install -U pip
@@ -19,7 +20,19 @@
       extra_args: "-U" 
   when: common_install_python_modules
 
-# 系统设置
+#3 Configure
+- name: Create common folder
+  file:
+    path: '/data/{{item}}'
+    state: directory
+    recurse: yes
+    mode: '0750'
+  with_items:
+    - logs
+    - config
+    - cert
+    - wwwroot
+    
 - block:
   - name: Set swapiness
     sysctl:
@@ -32,22 +45,8 @@
       value: "8192000"
   when: ansible_distribution != 'OracleLinux'
 
-# 准备基本目录
 - block:
-  - name: Create Dir
-    file:
-      path: '/data/{{item}}'
-      state: directory
-    with_items:
-      - logs
-      - config
-      - cert
-      - wwwroot
-  when: ansible_distribution != 'OracleLinux'
-  
-# set a regular hostname, remove "."
-- block:
-  - name: hostname rename
+  - name: set a regular hostname, remove "."
     shell: get_hostname=$(hostname);echo ${get_hostname%%.*}
     register: common_get_hostname
   - hostname:
