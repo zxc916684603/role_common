@@ -3,6 +3,7 @@
 ## To do
 
 1. 服务器最低配置判断
+2. OracleLinux 支持 CentOS7-base.repo
 
 ## Logs
 
