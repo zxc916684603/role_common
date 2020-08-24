@@ -38,3 +38,7 @@
 "ansible_distribution_release": "NA",
 "ansible_distribution_version": "7.7",
 ```
+
+## Cockpit
+
+Cockpit 建议采用 `yum install cockpit*` 这种批量安装方式，确保安装所有与之相关的包
