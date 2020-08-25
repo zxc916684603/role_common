@@ -32,7 +32,7 @@
     path: '/data/{{item}}'
     state: directory
     recurse: yes
-    mode: '0750'
+    mode: '0755'
   with_items:
     - logs
     - config
