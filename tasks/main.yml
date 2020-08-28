@@ -1,7 +1,7 @@
 #1 Common install by OS
 - name: Because oracle linux install pip,python slowly,sleep 300s
   shell: sleep 300s
-  when: == "OracleLinux"
+  when: ansible_distribution == "OracleLinux"
     
 - debug:
     msg: Will install components on {{ ansible_distribution }}
