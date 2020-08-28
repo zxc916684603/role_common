@@ -3,7 +3,7 @@
   shell: echo "rest time"
   when: ansible_distribution == "OracleLinux"
   
-- name: Because oracle linux install pip,python slowly,sleep 300s
+- name: Sleep OK
   shell: sleep 300s
   when: ansible_distribution == "OracleLinux"
     
