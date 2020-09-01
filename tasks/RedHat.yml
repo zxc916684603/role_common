@@ -1,6 +1,16 @@
+- name: Get system version
+  shell: |
+    issue_major=$( cat /etc/os-release | grep VERSION_ID | grep -Eo '[0-9]+\.?[0-9]+' | head -1 | awk -F'.' '{printf $1}')
+    echo $issue_major
+  register: issue_major
+  
 - name: System Upgrade
   yum: name=* state=latest
-  when: common_system_upgrade and (init == '1' or init == 1)
+  when: common_system_upgrade and (init == '1' or init == 1) and issue_major.stdout != "8"
+
+- name: System Upgrade
+  dnf: name=* state=latest
+  when: common_system_upgrade and (init == '1' or init == 1) and issue_major.stdout == "8"
 
 - name: Install Extra Packages for Enterprise Linux on {{ansible_distribution}}
   yum: 
