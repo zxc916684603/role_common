@@ -46,6 +46,7 @@
     - config
     - cert
     - wwwroot
+    - apps
     
 - block:
   - name: Set swapiness
