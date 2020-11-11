@@ -4,6 +4,7 @@
 
 1. 服务器最低配置判断
 2. OracleLinux 支持 CentOS7-base.repo
+3. Centos-->use yumdownloader and rpm install requires package,waiting for rhel official update repo
 
 ## Logs
 
@@ -12,6 +13,8 @@
 * 2020-08-14  add CentOS7_base.repo for AmazonLinux2
 * 2020-06-20  add Check OS support in main.yml
 * 2020-02-25  去掉pip install requests, 此模块不是python核心模块
+* 2020-11-11  use yumdownloader and rpm install requires package,waiting for rhel official update repo
+
 
 ### Features
 
