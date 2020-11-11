@@ -1,11 +1,23 @@
-- name: Install snap tools
-  apt: 
-    name: snapd
-    update_cache: yes
+- block:
+  - name: Install snap tools
+    apt: 
+      name: snapd
+      update_cache: yes
+  
+  - name: Install and upgrade core 
+    shell: |
+      snap install core 
+      snap refresh core
+      test -d  /root/snap && mv /root/snap /data/wwwroot
+    failed_when: false
   when: ansible_os_family == "Debian" 
-
-- name: Install snap tools
-  yum: 
-    name:
-    update_cache: yes
+  
+- block:
+  - name: Install snap tools
+    yum: 
+      name:
+      update_cache: yes
+  
+  -name: 
+  
   when: ansible_os_family == "RedHat"
