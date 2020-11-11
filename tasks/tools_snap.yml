@@ -7,4 +7,5 @@
 - name: Install snap tools
   yum: 
     name:
+    update_cache: yes
   when: ansible_os_family == "RedHat"
