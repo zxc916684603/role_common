@@ -4,7 +4,7 @@
 
 1. 服务器最低配置判断
 2. OracleLinux 支持 CentOS7-base.repo
-3. Centos-->use yumdownloader and rpm install requires package,waiting for rhel official update repo
+3. Centos snapd install waiting for rhel official(snapd-selinux-2.47.1-1.el7.noarch.rpm) update repo
 
 ## Logs
 
