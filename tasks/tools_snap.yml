@@ -1,0 +1,26 @@
+- block:
+  - name: Install snap tools
+    apt: 
+      name: snapd
+      update_cache: yes
+  when: ansible_os_family == "Debian" 
+
+# use yumdownloader and rpm install requires package,waiting for rhel official update repo
+- block:
+  - name: Install requires package
+    shell: |
+      yumdownloader snapd-selinux-2.47.1-1.el7.noarch
+      rpm --force --nodeps -ivh snapd-selinux-2.47.1-1.el7.noarch.rpm
+      
+  - name: Install snap tools
+    yum: 
+      name: snapd
+      update_cache: yes      
+  when: ansible_os_family == "RedHat"
+  
+- name: Install and upgrade core 
+  shell: |
+    snap install core 
+    snap refresh core
+    test -d  /root/snap && mv /root/snap /data/wwwroot
+  failed_when: false
