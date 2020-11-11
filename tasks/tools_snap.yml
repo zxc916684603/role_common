@@ -1,0 +1,10 @@
+- name: Install snap tools
+  apt: 
+    name: snapd
+    update_cache: yes
+  when: ansible_os_family == "Debian" 
+
+- name: Install snap tools
+  yum: 
+    name:
+  when: ansible_os_family == "RedHat"
